@@ -2,16 +2,22 @@ var canvas, ctx, asteroid = new Asteroid(75, 0.1, 23, 0.1);
 asteroid.generatePath();
 
 function init() {
-  var div = document.getElementById('asteroid-div');
+
   canvas = document.createElement('canvas');
   canvas.setAttribute('id', 'asteroid');
   canvas.width = div.offsetWidth;
   canvas.height = div.offsetHeight;
-  document.getElementById('asteroid-div').appendChild(canvas);
   ctx = canvas.getContext('2d');
 
+  var a = document.createElement('a');
+  a.appendChild(document.createTextNode('Regenerate'));
+
+  var div = document.getElementById('asteroid-div');
+  div.appendChild(canvas);
+  div.appendChild(a);
+
   setInterval(loop, 1000/24);
-  document.getElementById('experiment1').onclick = function() {
+  a.onclick = function() {
     asteroid.generatePath();
   }
 }
