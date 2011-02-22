@@ -2,7 +2,7 @@ var canvas, ctx, asteroid = new Asteroid(75, 0.1, 23, 0.1);
 asteroid.generatePath();
 
 function init() {
-
+  var div = document.getElementById('asteroid-div');
   canvas = document.createElement('canvas');
   canvas.setAttribute('id', 'asteroid');
   canvas.width = div.offsetWidth;
@@ -12,7 +12,6 @@ function init() {
   var a = document.createElement('a');
   a.appendChild(document.createTextNode('Regenerate'));
 
-  var div = document.getElementById('asteroid-div');
   div.appendChild(canvas);
   div.appendChild(a);
 
